@@ -1,0 +1,72 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+// class is created 
+class Car
+{
+public:
+
+    // these are data members 
+    string brand;
+    string model;
+    int year = 0; // Initialize before any experiment reads this member.
+
+    // this is a member function 
+    void display() const
+    {
+        cout << brand << " "
+             << model << " "
+             << year << endl;
+    }
+};
+
+int main()
+{
+    // Both objects come from the SAME class.
+    Car car1;
+    Car car2;
+    Car car3;
+
+    // But they contain DIFFERENT values.
+
+    car1.brand = "Volkswagen";
+    car1.model = "Polo";
+    car1.year = 2025;
+
+    car2.brand = "Tesla";
+    car2.model = "Model X";
+    car2.year = 2022;
+    
+    car3.brand = "Toyota";
+    car3.model = "Highlander";
+    car3.year = 2023;
+
+    cout << "Car 1:" << endl;
+    car1.display();
+
+    cout << endl;
+
+    cout << "Car 2:" << endl;
+    car2.display();
+    
+    cout << endl;
+    
+    cout << "Car 3: " << endl;
+    car3.display();
+
+    return 0;
+}
+
+/*
+    PREDICT: If car1.year changes, will car2.year also change?
+    EXPECTED: Car 1 displays Volkswagen Polo 2012; Car 2 displays Tesla Model X 2022.
+
+    TRY THIS:
+    1. Set car1.year = 2025 after both objects are initialized, then display both.
+    2. Add a third object and give it different values.
+    3. Explain why these non-static data members belong to individual objects. 
+    // The data members are attributes under specific objects, so the arguments are specific to
+    // its object, the class is it's blueprint.
+*/
